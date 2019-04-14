@@ -146,7 +146,7 @@ void PushManager::abi_json_to_bin_returned(const QByteArray &data)
     abiJsonToBinData = data;
 
     connect(httpcs[FunctionID::get_info].get(), &HttpClient::responseData, this, &PushManager::get_info_returned);
-    httpcs[FunctionID::abi_json_to_bin]->request(FunctionID::get_info);
+    httpcs[FunctionID::get_info]->request(FunctionID::get_info);
 }
 
 void PushManager::get_info_returned(const QByteArray &data)
@@ -168,7 +168,7 @@ void PushManager::get_info_returned(const QByteArray &data)
     }
 
     connect(httpcs[FunctionID::get_required_keys].get(), &HttpClient::responseData, this, &PushManager::get_required_keys_returned);
-    httpcs[FunctionID::abi_json_to_bin]->request(FunctionID::get_required_keys, param);
+    httpcs[FunctionID::get_required_keys]->request(FunctionID::get_required_keys, param);
 }
 
 void PushManager::get_required_keys_returned(const QByteArray &data)
@@ -192,7 +192,7 @@ void PushManager::get_required_keys_returned(const QByteArray &data)
     }
 
     connect(httpcs[FunctionID::push_transaction].get(), &HttpClient::responseData, this, &PushManager::push_transaction_returned);
-    httpcs[FunctionID::abi_json_to_bin]->request(FunctionID::push_transaction, param);
+    httpcs[FunctionID::push_transaction]->request(FunctionID::push_transaction, param);
 }
 
 void PushManager::push_transaction_returned(const QByteArray &data)
